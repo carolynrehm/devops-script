@@ -1,8 +1,7 @@
 #!/bin/sh
 
-echo "installing git"
-sudo yum install git -y
-echo "git installed"
+echo "updating existing packages"
+sudo yum update -y
 
 echo "installing java 8"
 sudo yum install -y java-1.8.0-openjdk-devel
@@ -17,7 +16,9 @@ sudo yum install -y apache-maven
 echo "maven installed"
 
 echo "installing jenkins"
-wget https://updates.jenkins-ci.org/stable/latest/jenkins.war
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+sudo rpm --import http://pkg.jenkins.io/redhat/jenkins.io.key
+sudo yum install jenkins -y   
 echo "jenkins installed now starting"
-sudo nohup java -jar jenkins.war &
+sudo service jenkins start
 echo "jenkins started"
