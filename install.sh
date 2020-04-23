@@ -4,8 +4,7 @@ echo "updating existing packages"
 sudo yum update -y
 
 echo "installing java 8"
-sudo yum remove java-1.7.0-openjdk
-sudo yum install java-1.8.0
+sudo yum install -y java-1.8.0-openjdk-devel
 sudo update-alternatives --config java
 sudo update-alternatives --config javac
 echo "java 8 installed and configured"
