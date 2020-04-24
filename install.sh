@@ -22,3 +22,11 @@ sudo yum install jenkins -y
 echo "jenkins installed now starting"
 sudo service jenkins start
 echo "jenkins started"
+
+echo "allocating 1 GB swap space"
+sudo dd if=/dev/zero of=/swapfile bs=128M count=8
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile swap swap defaults 0 0' | sudo tee -a /etc/fstab
+echo "swap allocated"

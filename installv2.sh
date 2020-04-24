@@ -23,7 +23,7 @@ echo "jenkins installed now starting"
 sudo service jenkins start
 echo "jenkins started"
 
-echo "allocated 1 GB swap space for builds"
+echo "allocated 1 GB swap space"
 sudo dd if=/dev/zero of=/swapfile bs=128M count=8
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
