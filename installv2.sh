@@ -28,15 +28,16 @@ sudo dd if=/dev/zero of=/swapfile bs=128M count=8
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
-echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
+echo '/swapfile swap swap defaults 0 0' | sudo tee -a /etc/fstab
 echo "swap allocated"
 
 echo "installing docker"
 sudo amazon-linux-extras install docker
 sudo usermod -a -G docker ec2-user
 sudo usermod -a -G docker jenkins
-sudo chmod 666 /var/run/docker.sock
 echo "starting docker"
 sudo service docker start
 echo "docker started"
+
+# sudo chmod 666 /var/run/docker.sock
 
