@@ -17,7 +17,7 @@
 
 6. Jenkins is ready for you to get started! Use the `cat` command to print the contents of the initialAdminPassword, install the suggested plugins, and set up an admin user.
 
-    See [jenkinsfile-examples](https://github.com/carolynrehm/devops-script/tree/master/jenkinsfile-examples) for relevant pipeline scripts for your desired jobs. 
+    See [jenkinsfile-examples](https://github.com/carolynrehm/devops-script/tree/master/jenkinsfile-examples) for relevant pipeline scripts for your desired jobs. Also, make sure as you configure your jobs, limit the number of old builds to 1 or 2 so your EC2 doesn't have memory issues.
 
 7. Make sure to add your webhook to your GitHub repository. This is done by navigating to the "Settings" tab and adding a webhook with a payload url of http://[your ec2 ip]:8080/github-webhook/ - for this to be functional, you must trigger the build once manually from the Jenkins console.
 
@@ -39,6 +39,6 @@
 
 6. Jenkins is ready for you to get started! Use the `cat` command to print the contents of the initialAdminPassword, install the suggested plugins, and set up an admin user.
 
-    See [jenkinsfile-examples](https://github.com/carolynrehm/devops-script/tree/master/jenkinsfile-examples) for relevant pipeline scripts for your desired jobs. 
-
+    See [jenkinsfile-examples](https://github.com/carolynrehm/devops-script/tree/master/jenkinsfile-examples) for relevant pipeline scripts for your desired jobs. Also, make sure as you configure your jobs, limit the number of old builds to 1 or 2 so your EC2 doesn't have memory issues.
+    
 7. Make sure to add your webhook to your GitHub repository. This is done by navigating to the "Settings" tab and adding a webhook with a payload url of http://[your ec2 ip]:8080/github-webhook/ - for this to be functional, you must trigger the build once manually from the Jenkins console.
