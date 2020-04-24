@@ -38,6 +38,5 @@ sudo usermod -a -G docker jenkins
 echo "starting docker"
 sudo service docker start
 echo "docker started"
-
-# sudo chmod 666 /var/run/docker.sock
+sudo chmod 666 /var/run/docker.sock
 
