@@ -23,6 +23,14 @@ echo "jenkins installed now starting"
 sudo service jenkins start
 echo "jenkins started"
 
+echo "allocated 1 GB swap space for builds"
+sudo dd if=/dev/zero of=/swapfile bs=128M count=8
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
+echo "swap allocated"
+
 echo "installing docker"
 sudo amazon-linux-extras install docker
 sudo usermod -a -G docker ec2-user
