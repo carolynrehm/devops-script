@@ -4,7 +4,7 @@ echo "updating existing packages"
 sudo yum update -y
 
 echo "installing node"
-curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+curl --silent --location https://rpm.nodesource.com/setup_12.x | sudo bash -
 sudo yum -y install nodejs
 echo "node installed"
 
