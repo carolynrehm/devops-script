@@ -16,10 +16,18 @@ sudo yum install -y apache-maven
 echo "maven installed"
 
 
-echo "installing tomcat"
-sudo wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.39/bin/apache-tomcat-${VER}.tar.gz
-sudo tar xvf apache-tomcat-9.0.39.tar.gz -C /usr/share/
-echo "tomcat installed"
+echo "downloading tomcat tar.gz"
+sudo cd /tmp
+sudo wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.35/bin/apache-tomcat-8.5.35.tar.gz
+sudo tar -xzvf apache-tomcat-8.5.35.tar.gz
+echo "giving ec2-user permission for tomcat"
+sudo chmod 777 -R apache-tomcat-8.5.35
+sudo mkdir /usr/apache
+sudo mv apache-tomcat-8.5.35 /usr/apache/
+sudo sed -i 's/<Connector port="8080"/<Connector port="8090"/' /usr/apache/apache-tomcat-8.5.35/conf/server.xml
+sudo sh /usr/apache/apache-tomcat-8.5.35/bin/startup.sh
+echo "CATALINA_HOME=/usr/apache/apache-tomcat-8.5.35"  >> ~/.bashrc
+echo "export CATALINA_HOME"  >> ~/.bashrc
 
 echo "installing jenkins"
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
